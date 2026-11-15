@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arwa-nginx
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arwa-nginx
+  template:
+    metadata:
+      labels:
+        app: arwa-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: farhad90/arwa-nginx:v1
+        ports:
+        - containerPort: 80
